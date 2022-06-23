@@ -64,6 +64,7 @@ int TrouveEtudiant(int code_etudiant)
 	Pita=fopen("etudiant.csv","r");
 	do
 	{
+		//on formate bien le code pour eviter tles erreurs ou les warning
 		fscanf(Pita,"%d;%[a-zA-Z];%[a-zA-Z ];%[a-zA-Z0-9@.];%2d/%2d/%4d;%d \n",&etude.identifiant,etude.nom,etude.prenom,etude.email,&etude.ttc.jour,&etude.ttc.mois,&etude.ttc.annee,&etude.cla.code);
 		fflush(stdin);
 		if (etude.identifiant == code_etudiant)
@@ -85,7 +86,6 @@ void AjouterEtudiant()
 	FILE *Pita;
 	int identi;
 	Pita=fopen("etudiant.csv","a");
-	fflush(stdin);
 
 	printf("\nEntrer l'identifiant du nouveau etudiant: ");
 	scanf("%d",&identi);
